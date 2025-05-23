@@ -12,13 +12,7 @@ $user_email = $_POST['email'];
 $user_password = $_POST['password'];
 
  
-$conn = mysqli_connect("localhost", "root", "", "quote_mgmt", "3306");
-
-if($conn == false){
-    echo "Connection Failed";
-} else {
-    echo "Connection Successful";
-}
+include 'db-conn.php';
 
 // 1. query
 // 2. prepare query
