@@ -8,10 +8,23 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 $quote = $_POST['quote'];
 $author_name = $_POST['author'];
 
+
+
+
 include 'db-conn.php';
 
 
-"Quote"
+
+$query = "INSERT INTO quote (quote, author_name) VALUES (?, ?)";
+$abc = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($abc, "ss", $quote, $author_name);
+mysqli_stmt_execute($abc);
+
+
+header("Location: dashboard.php?path=add-quote");
+
+
+
 
 
 

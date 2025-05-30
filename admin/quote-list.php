@@ -1,3 +1,22 @@
+<?php
+
+include 'db-conn.php';
+$query = "SELECT * FROM quote";
+$stmt =  mysqli_prepare($conn, $query);
+
+mysqli_execute($stmt);
+$mysqli_result =  mysqli_stmt_get_result($stmt);
+
+echo '<pre>';
+// var_dump($mysqli_result);
+// var_dump(mysqli_fetch_all($mysqli_result));
+echo '</pre>';
+
+
+
+?>
+
+
 <h1 class="text-3xl  text-gray-600 my-5">Hello Admin! 👋</h1>
 
 
