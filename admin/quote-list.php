@@ -38,23 +38,32 @@ for ($i = 0; $i < mysqli_num_rows($mysqli_result); $i++) {
             </tr>
         </thead>
         <tbody>
-            <?php for ($j = 0; $j < count($datas); $j++):
-                $item = $datas[$j];
+            <?php
+
+            if (count($datas) > 0):
+                for ($j = 0; $j < count($datas); $j++):
+                    $item = $datas[$j];
             ?>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                        <td class="px-6 py-4">
+                            <?php echo $j + 1; ?>
+                        </td>
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <?php echo $item['quote'] ?>
+                        </th>
+                        <td class="px-6 py-4">
+                            <?php echo $item['author_name']; ?>
+                        </td>
+
+                    </tr>
+                <?php endfor;
+            else: ?>
+
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                    <td class="px-6 py-4">
-                        <?php echo $j + 1; ?>
-                    </td>
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        <?php echo $item['quote'] ?>
-                    </th>
-                    <td class="px-6 py-4">
-                        <?php echo $item['author_name']; ?>
-                    </td>
-
+                    <td colspan="3" class="px-6 py-4 font-medium text-center text-gray-900 whitespace-nowrap dark:text-white">No Data available</td>
                 </tr>
-            <?php endfor; ?>
 
+            <?php endif; ?>
 
 
 
